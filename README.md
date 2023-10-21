@@ -51,3 +51,25 @@ Oracle Cloud es un sistema con diversos conceptos comunes a otras nubes pero tam
 El contenido del video puede tener algunos temas desactualizados, por eso todos los detalles sobre los conceptos básicos y la arquitectura de OCI pueden ser encontrados en la documentación oficial en el siguiente enlace.
 
 [Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/GSG/Concepts/baremetalintro.htm "Documentación de Oracle Cloud Infrastructure")
+
+### Para saber más: compartimientos a fondo
+
+En nuestra clase anterior vimos los conceptos básicos de los compartimientos, sin embargo existen detalles técnicos avanzados que son útiles en casos de uso más complejos. El siguiente video da información más detallada (El video fue realizado en el idioma inglés pero puedes activar los subtítulos en español)
+
+[   0:11 / 10:44  • Introduction   IAM Level 100 Part 3: Compartments](https://www.youtube.com/watch?v=VJD19vyu6lI "   0:11 / 10:44  • Introduction   IAM Level 100 Part 3: Compartments")
+
+El contenido del video puede tener algunos temas desactualizados, por eso todos los detalles sobre la utilización de compartimientos dentro de OCI pueden ser encontrados en la documentación oficial en el siguiente enlace.
+
+[Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/Identity/compartments/managingcompartments.htm "Documentación de Oracle Cloud Infrastructure")
+
+### Haga lo que hicimos: creando compartimentos
+
+Aprendimos cómo crear compartimentos, que tiene por objetivo promover el isolamiento de seguridad y control de acceso dentro de la nube. Esto se logra a través de un namespace lógico global, donde las políticas de seguridad pueden ser aplicadas. Por medio de la aplicación de políticas, podemos definir un nivel de acceso adecuado dependiendo de los parámetros definidos por la organización para el gerenciamiento de recursos.
+
+De esta manera la creación de compartimentos será nuestra primera dentro de OCI antes de dar continuidad al proceso de implementación de nuestro proyecto.
+
+### Haga lo que hicimos: creando usuarios
+
+Vimos cómo crear nuevos usuarios dentro de ORacle Cloud para segregar el nivel de acceso a las diferentes funcionalidades de OCI
+
+Al crear tu cuenta por primera vez tendrás acceso a un usuario con permisos de administrador raíz(root). Eso significa que tienes el control sobre toda la cuenta y sobre todos los recursos de OCI. Sin embargo, este usuario debe ser utilizado para gerenciar otros usuarios, grupos y políticas. Debemos crear un nuevo usuario que tenga permisos solamente para el compartimento que creamos anteriormente.
