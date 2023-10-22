@@ -134,3 +134,43 @@ El contenido del video puede presentar algunos tópicos desactualizados, por eso
 conectarce co en servidor por ssh
 
 `ssh <usuario>@<ip_publica> -i nombre_del_archivo_rsa`
+
+### Haga lo que hicimos: instalando softwares
+
+Realizamos la instalación de los softwares necesarios para la ejecución del Doguito Server en la instancia creada. Para eso, instalamos el servidor Apache HTTP y creamos una página HTML muy básica, solamente para validar el funcionamiento del servidor.
+
+Entretanto, para que la instancia sea accesible a través del puerto 80 via internet, es necesario la inclusión de una nueva regla de acceso en la lista de seguridad de la VCN pública.
+
+Después de estos pasos es posible acceder al servidor a través de una requisición via navegador, utilizando el IP Público como localización.
+
+¡Llegó la hora de realizar estos pasos, accede al Cloud Shell y empezamos!
+
+### Haga lo que hicimos: instalando softwares
+
+Nuestras expectativas en relación al proyecto de Doguito Petshop son grandes. Entretanto, tenemos que evitar que la página caiga en su lanzamiento, debido a un número muy grande de accesos. Vamos a mantener más de un servidor funcionando y utilizar un balanceador de carga para distribuir la carga entre ellos.
+
+De esta manera, nuestro próximo paso será crear una instancia del Doguito Petshop Server para después implementar un balanceador de cargas.
+
+La creación de este servidor seguirá exactamente los mismos pasos de la primera vez. Entretanto, vamos a alterar su nombre (que parará a ser “dps-vm2”) y el texto de la página HTML patrón, que debe informar que accederemos un segundo servidor.
+
+### Para saber mais: introducción a load balancers
+
+Cuando pensamos en aplicaciones escalables horizontalmente, implantadas en cloud y en infraestructuras convencionales, el primer componente que nos viene en mente es un balanceador de cargas. Este servirá para distribuir las cargas del trabajo entre diferentes instancias de servidores de acuerdo con un algoritmo predeterminado.
+
+Puedes encontrar más detalles sobre load balancers en OCI viendo a este video de Oracle:
+
+[Introduction to Oracle Cloud Infrastructure Load Balancer](https://www.youtube.com/watch?v=tY2UuVbDElc "Introduction to Oracle Cloud Infrastructure Load Balancer")
+
+El contenido del video puede presentar algunos tópicos desactualizados, por eso, todos los detalles sobre la utilización de Redes en OCI pueden ser encontrados en la documentación oficial, a través del link:
+
+[Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/home.htm "Documentación de Oracle Cloud Infrastructure")
+
+### Lo que aprendimos
+
+Lo que aprendimos en esta aula:
+
+- Necesitamos un compute para implementar nuestra aplicación de Doguito, ya que representa el servidor en el cual la aplicación será instalada.
+- Para crear y configurar un compute tenemos que acceder a la opción “Computación” y después “Instancias” del menú de OCI.
+- Balanceador de carga es un componente responsable por distribuir la carga de requisiciones entre las instancias de computación. Es importante para que la aplicación escale de manera horizontal y la torna más resiliente a fallas.
+- Para crear un balanceador de cargas necesitamos acceder el menú Red y después la opción “Balanceadores de Carga”. En este proceso de creación indicamos cuáles servidores de back-end serán utilizados.
+- Con un balanceador de cargas podemos tornar la infraestructura de Doguito más flexible.
