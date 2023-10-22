@@ -73,3 +73,42 @@ De esta manera la creación de compartimentos será nuestra primera dentro de OC
 Vimos cómo crear nuevos usuarios dentro de ORacle Cloud para segregar el nivel de acceso a las diferentes funcionalidades de OCI
 
 Al crear tu cuenta por primera vez tendrás acceso a un usuario con permisos de administrador raíz(root). Eso significa que tienes el control sobre toda la cuenta y sobre todos los recursos de OCI. Sin embargo, este usuario debe ser utilizado para gerenciar otros usuarios, grupos y políticas. Debemos crear un nuevo usuario que tenga permisos solamente para el compartimento que creamos anteriormente.
+
+### Haga lo que hicimos: configurando Cloud Shell
+
+En esta clase vimos que para que un usuario pueda acceder a Cloud Shell es necesario que tenga las políticas definidas adecuadamente. Para eso tenemos que acceder al área de Identidad y Seguridad de OCI y crear una política para permitir que usuarios del grupo puedan utilizar Cloud Shell.
+
+En seguida debemos acceder a Cloud Shell como un usuario administrador para poder realizar la creación de las llaves SSh que utilizaremos para acceder a las instancias que crearemos después.
+ se crea con:
+ `ssh-keygen -b 2048 -t rsa -f <nombre-del-archivo>`
+
+### Lo que aprendimos
+
+Lo que aprendimos en esta aula:
+
+- La arquitectura de OCI está compuesta por una serie de elementos como instancias de computación, almacenamiento, redes, bases de datos, políticas de identidad y seguridad, entre otros.
+- Creamos usuarios, grupos y políticas dentro de OCU para controlar el acceso a funcionalidades.
+- Vimos algunos comandos básicos para poder generar una llave RSA dentro de Cloud Shell, la cual nos permite realizar una conexión segura con las instancias.
+
+### Haga lo que hicimos: VCN para instancias
+
+Antes de crearnos nuestras instancias de compute, que serán los servidores de Doguito Petshop, tenemos que crear una red virtual en la nube (VCN) donde el compute será prendido.
+
+Una VCN es una red definida por software que se configura en los data centers de Oracle Cloud Infrastructure en determinada región. Esta red puede contener subredes, que son una subdivisión de una VCN.
+
+Para eso debemos acceder el menú “Red”, “Redes Virtuales en la Nube” y empezar el asistente de creación de redes que nos ayudará con esa tarea.
+
+### Para saber mais: redes en OCI
+
+Cuando hablamos de infraestructura en Cloud, una de nuestras primeras tareas es estructurar una red. En general estas redes son conocidas como redes virtuales ya que son definidas via software al contrario de dispositivos físicos de hardware. Estas redes virtuales poseen diversos conceptos elaborados que puedes profundizar viendo los videos de [esta playlist](https://www.youtube.com/playlist?list=PLvlciYga5j3z7biGjV7-fywS-xEJ3W6Pp "esta playlist").
+
+El contenido del video puede presentar algunos tópicos desactualizados, por eso, todos los detalles sobre la utilización de Redes en OCI pueden ser encontrados en la documentación oficial, a través del link:
+
+[Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/Network/Concepts/landing.htm#top "Documentación de Oracle Cloud Infrastructure")
+
+### Lo que aprendimos
+Lo que aprendimos en esta aula:
+
+- VCNs - Redes Virtuales en la Nube - controlan la comunicación de los componentes de Cloud con la internet y con los servicios de Oracle a través de subredes virtuales que poseen sus própias tablas de ruta, listas de seguridad y gateways.
+- Creamos una VCN con uns subred pública y otra privada en OCI utilizando Wizard en pocos pasos.
+- Como es definido la ruta y la seguridad en las VCNs y como estes atributos restringen y tornan segura la comunicación de las instancias que crearemos para nuestra aplicación.
