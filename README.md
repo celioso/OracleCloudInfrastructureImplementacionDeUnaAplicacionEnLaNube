@@ -112,3 +112,25 @@ Lo que aprendimos en esta aula:
 - VCNs - Redes Virtuales en la Nube - controlan la comunicación de los componentes de Cloud con la internet y con los servicios de Oracle a través de subredes virtuales que poseen sus própias tablas de ruta, listas de seguridad y gateways.
 - Creamos una VCN con uns subred pública y otra privada en OCI utilizando Wizard en pocos pasos.
 - Como es definido la ruta y la seguridad en las VCNs y como estes atributos restringen y tornan segura la comunicación de las instancias que crearemos para nuestra aplicación.
+
+### Haga lo que hicimos: nuestro primer compute
+
+Creamos nuestro primer compute. Computes son la estructura de la OCI para provisionar y gerenciar hosts de computación, conocidos como instancias.
+
+Puedes crear instancias conforme sea necesario para atender a los aplicativos que deseas implementar en la OCI. Después de crear una instancia, puedes accederla con seguridad utilizando una llave SSH, reiniciarla, adjuntar y desadjuntar volúmenes y cerrarlas. Pero recuerda que cualquier alteración hecha en las unidades locales de la instancia son pérdidas cuando las cierra.
+
+Para crearnos una instancia, que será un servidor de Doguito Petshop, podemos acceder al menú “Computación” y después “Instancias”.
+
+### Para saber más: todo sobre computes
+
+Como ya aprendimos, computes representan las instancias de servirán nuestras aplicaciones en cloud. Existen muchas opciones para elegir, que equilibran cuestiones de costo y performance.
+
+Si te interesaste por este tema y quieres saber todos los detalles de la configuración de computes en OCI, tienes que ver[ esta playlist](https://www.youtube.com/playlist?list=PLKCk3OyNwIzsAjIaUaVsKdXcfBOy6LASv " esta playlist") que nos explica todo sobre computes en OCI.
+
+El contenido del video puede presentar algunos tópicos desactualizados, por eso, todos los detalles sobre la utilización de Redes en OCI pueden ser encontrados en la documentación oficial, a través del link:
+
+[Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/home.htm "Documentación de Oracle Cloud Infrastructure")
+
+conectarce co en servidor por ssh
+
+`ssh <usuario>@<ip_publica> -i nombre_del_archivo_rsa`
