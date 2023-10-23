@@ -70,3 +70,75 @@ Lo que aprendimos en esta aula:
 - Que podemos crear un servicio de systemd para que la aplicación de Doguito API inicie automáticamente con nuestra instancia.
 - Que es necesario liberar el acceso a la puerta 3000 en firewall de la instancias y crear una regla de acceso en la lista de seguridad de red virtual para que podamos acceder al Doguito API.
 - Que podemos utilizar un cliente REST como Boomerang para acceder nuestra API del Doguito.
+
+### Haga lo que hicimos: infraestructura a partir del código
+
+Realizamos la creación de nuestra primera infraestructura a partir del código utilizando el gerenciador de recursos de OCI.
+
+Inicialmente fue necesario remover los recursos ya utilizados para no ultrapasar los límites de uso de la cuenta free tier.
+
+Realizamos la remoción del balanceador de cargas, de las dos instancias de computación y de la red virtual.
+
+En seguida pudimos implementar nuestra primera infraestructura como código como el archivo “[orm-dps.zip](https://github.com/alura-es-cursos/1911-OCI2-doguito-site-orm/archive/refs/heads/master.zip "orm-dps.zip")”, que tiene una infraestructura básica de balanceador de carga, red virtual y dos instancias.
+
+Sigue los pasos realizados en el video para implementar la infraestructura como código y si tienes problemas, acciona el fóro del curso para obtener auxilio.
+
+### Para saber más: automatizando la infraestructura
+
+La infraestructura necesaria para la ejecución de nuestras aplicaciones se han tornado cada vez más complejas. Además de eso, también tenemos el concepto de infraestructura elástica, que consiste en adecuar nuestra infraestructura implementada al volumen de trabajo de un determinado momento. Para eso, surgió la necesidad de automatización de implementación, que debe dejar de ser un proceso manual para ser un proceso automático y reproducible.
+
+Como hemos visto, Resource Manager de OCI es nuestro aliado en esta tarea, y este video nos trae muchas informaciones complementares para profundizarnos nuestro conocimiento sobre Resource Manager:
+
+[OCI Level 100 - Resource Manager](https://www.youtube.com/watch?v=btnRgK36LnE "OCI Level 100 - Resource Manager")
+
+El contenido en video puede presentar algunos tópicos desactualizados, por eso, todos los detalles sobre la utilización de Resource Manager en OCI pueden ser encontrados en la documentación oficial a través del link:
+
+[Documentación de Oracle Cloud Infrastructure](https://docs.oracle.com/es-ww/iaas/Content/home.htm "Documentación de Oracle Cloud Infrastructure")
+
+### Lo que aprendimos
+
+Lo que aprendimos en esta aula:
+
+- Que las aplicaciones han evolucionado su arquitectura de construcción de monolitos para microservicios.
+- Que la utilización de microservicios acelera la necesidad de trabajarse con automatización de aprovisionamiento de infraestructura y infraestructura como código.
+- Que la OCI disponibiliza diversas soluciones de soporte al desarrollo a través de la opción “Servicios al Desarrollador”, por ejemplo: Kubernets, Registro de Artefactos, Gateway de API y Gerenciamiento de Recursos (IaaS)
+- Que el Gerenciador de Recursos es un servicio de Terraform y permite la definición de infraestructura como código, colaborando para que la infraestructura pueda ser fácilmente replicada y versionada.
+
+### Haga lo que hicimos: Doguito como código
+
+¿Estás listo para crear un pilla customizada para implementar Doguito de manera extremadamente simple y práctica?
+
+Serán necesarios algunos pasos:
+
+- Ajustar el archivo “compute.tf” customizando el nombre de las instancias;
+- Ajustar el archivo loadbalancer.tf customizando el nombre del balanceador de cargas y las puertas de conexión;
+- Ajustar el archivo “network.tf” incluyendo una regla de ingreso para la puerta 3000;
+- Crear un nuevo bucket llamado internal y hacer el upload de los archivos “doguito-site.service” y “Wallet_DOGUITODB.zip”;
+- Alterar el “archivo cloud-init.yaml” instalando git, Node.js y los drivers de conexión con la base de datos ORacle. Inserir un comando en el archivo para hacer la descarga y configurar el service de Doguito, además de hacer la descarga de Wallet y la descompactar en el local adecuado, liberando la puerta 3000 en firewall.
+Por fin, tenemos que compactar otra vez el archivo “[orm-dps-vm2](https://github.com/alura-es-cursos/1911-OCI2-doguito-site-orm2/archive/refs/heads/master.zip "orm-dps-vm2")” en un archivo zip que será utilizado para inicializar la pilla del Doguito.
+
+Si tienes alguna pregunta, no dudes en entrar en contacto con otras personas en nuestro fóro.
+
+### Haga lo que hicimos: implementando Doguito como código
+
+Tenemos el archivo “orm-dps-v2.zip” y ahora es hora de implementarlo como una pilla en OCI. Para eso utilizamos la opción de Servicios al Desarrollador y Gerenciador de Recursos.
+
+El proceso será muy semejante al que hicimos anteriormente, pero utilizaremos el archivo “[orm-dps-v2.zip](https://github.com/alura-es-cursos/1911-OCI2-doguito-site-orm2/archive/refs/heads/master.zip "orm-dps-v2.zip")” que acabamos de generar para subir una pila customizada para Doguito.
+
+Espero que salga todo bien y que tu pilla sea implementada con éxito, pero si tienes algún problema, puedes conversar con los demás colegas en el foro.
+
+### Para saber más: automatizando la infraestructura
+
+En este entrenamiento nuestro enfoque es en el aprendizaje de utilización de Oracle Cloud para casos prácticos, entretanto, debes haber visto que hablamos sobre varias herramientas auxiliares que podemos utilizar para trabajar en una Cloud.
+
+Resource Manager de OCI es una de estas herramientas y que internamente utiliza scripts TerraForm para automatizar la implementación de infraestructura.
+
+Si te interesaste por Terraform y quieres saber más sobre, te dejamos un artículo que tenemos en nuestro blog [aquí](https://www.aluracursos.com/blog/conociendo-terraform?utm_source=gnarus&utm_medium=timeline "aquí").
+
+### Lo que aprendimos
+
+Lo que aprendimos en esta aula:
+
+- Que podemos customizar los archivos Terraform para crear diversos tipos de recursos computacionales de una pilla de plementación.
+- Que utilizamos el archivo cloud-init.yaml para customizar la instalación de softwares diversos en las instancias computacionales creadas a partir de una pilla.
+- Que usamos el Almacenamiento de Objetos para guardar archivos de configuración que serán utilizados en la implementación de nuestras pillas de recursos.
